@@ -1,0 +1,48 @@
+% main ratios document
+\documentclass[letterpaper,11pt]{article}
+\usepackage[margin=1in]{geometry}
+
+% \usepackage{setspace}
+% \usepackage{enumitem}
+% \usepackage{etoolbox}
+
+%\usepackage{fontawesome}
+\usepackage[tracking=smallcaps]{microtype}
+\raggedright
+
+% section headers - horizontal line and small-caps title
+\newcommand{\sectionheader}[1]{
+    % \hrulefill \\
+    ~\\
+    {\small\textsc{#1}} \\
+    % \addvspace{1em}
+}
+
+
+
+\begin{document}
+
+\normalsize
+% \parskip0pt
+
+{\huge\scshape{ratios}}
+
+\sectionheader{doughs}
+\begin{tabular}{ l c c c c c }
+~ & flour & fat & liquid & egg & sugar \\
+\hline
+Bread & 5 parts & & 3 parts water \\
+Pasta Dough & 3 parts & & & 2 parts egg \\
+Pie Dough & 3 parts & 2 parts fat & 1 part water \\
+Biscuit & 3 parts & 1 part fat & 2 parts liquid \\
+Cookie Dough & 3 parts & 2 parts fat & & & 1 part sugar \\
+Pate a Choux & 1 part & 1 part butter & 2 parts water & 2 parts egg \\
+\end{tabular}
+
+\sectionheader{batters}
+\sectionheader{stocks and sauces}
+\sectionheader{meat}
+\sectionheader{fat-based sauces}
+\sectionheader{custards}
+
+\end{document}
