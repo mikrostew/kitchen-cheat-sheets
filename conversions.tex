@@ -1,0 +1,97 @@
+% main ratios document
+\documentclass[letterpaper,11pt]{article}
+\usepackage[margin=0.8in]{geometry}
+
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+
+\usepackage[tracking=smallcaps]{microtype}
+\raggedright
+
+\usepackage{enumitem}
+
+\usepackage{tikz}
+
+\usepackage{stackengine}
+
+\usepackage{scrextend}
+
+
+% section headers - small-caps title
+\newcommand{\sectionheader}[1]
+{
+  \vspace{0.5em}
+  {\small\textsc{#1}} \\
+  \vspace{1em}
+}%
+
+% section table layout
+\newcommand{\sectiontable}[1]
+{
+  % \small
+  \rowcolors{1}{green!20}{white}
+  % rounded corners
+  % (see http://tex.stackexchange.com/questions/184060/table-with-alternating-row-colours-and-rounded-corners)
+  \noindent\begin{tikzpicture}[line width=.1mm,rounded corners=.5em]
+    \node(thetable) [clip,inner sep=.5\pgflinewidth] {
+      \addstackgap[\pgflinewidth]{%
+      \begin{tabularx}{\dimexpr\textwidth-2\pgflinewidth\relax}{ p{4cm} X c X c X c X }
+        #1
+      \end{tabularx}%
+      }
+    };
+    \draw ([xshift=.5*\pgflinewidth,yshift=-.5*\pgflinewidth]thetable.north west)
+      rectangle ([xshift=-.5*\pgflinewidth,yshift=.5*\pgflinewidth]thetable.south east);
+  \end{tikzpicture}
+}%
+
+% for notes under a table
+\newcommand{\note}[1]
+{
+  \small
+  \begin{addmargin}{2em}
+    $\star$ #1
+  \end{addmargin}
+}%
+
+
+\begin{document}
+\normalsize
+
+\pagestyle{empty}
+{\huge\scshape{conversions}} \\
+~ \\
+
+\sectionheader{temperatures}
+\begin{tabular}{ c c }
+\rowcolor{white}
+Fahrenheit & Celcius \\
+\hline
+\rowcolor{red!5}
+250 & 120 \\
+\rowcolor{red!10}
+275 & 140 \\
+\rowcolor{red!15}
+300 & 150 \\
+\rowcolor{red!20}
+325 & 170 \\
+\rowcolor{red!25}
+350 & 180 \\
+\rowcolor{red!30}
+375 & 190 \\
+\rowcolor{red!35}
+400 & 200 \\
+\rowcolor{red!40}
+425 & 220 \\
+\rowcolor{red!45}
+450 & 230 \\
+\rowcolor{red!50}
+475 & 240 \\
+\end{tabular}%
+
+\sectionheader{weights}
+
+% \note{Thickening rule: 1 Tbsp starch thickens 1 cup liquid}%
+
+
+\end{document}
