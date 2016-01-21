@@ -63,31 +63,48 @@
 ~ \\
 
 \sectionheader{temperature}
-\begin{tabular}{ c c }
+
+  \noindent\begin{tikzpicture}[line width=.1mm,rounded corners=.5em]
+    \node(thetable) [clip,inner sep=.5\pgflinewidth] {
+      \addstackgap[\pgflinewidth]{%
+\begin{tabular}{ c c c }
 \rowcolor{white}
-Fahrenheit & Celcius \\
+Fahrenheit & Celcius & Gas Mark \\
 \hline
 \rowcolor{red!5}
-250 & 120 \\
+225 & 105 & $\frac{1}{4}$ \\
 \rowcolor{red!10}
-275 & 140 \\
+250 & 120 & $\frac{1}{2}$ \\
 \rowcolor{red!15}
-300 & 150 \\
+275 & 135 & 1 \\
 \rowcolor{red!20}
-325 & 170 \\
+300 & 150 & 2 \\
 \rowcolor{red!25}
-350 & 180 \\
+325 & 165 & 3 \\
 \rowcolor{red!30}
-375 & 190 \\
+350 & 180 & 4 \\
 \rowcolor{red!35}
-400 & 200 \\
+375 & 190 & 5 \\
 \rowcolor{red!40}
-425 & 220 \\
+400 & 205 & 6 \\
 \rowcolor{red!45}
-450 & 230 \\
+425 & 220 & 7 \\
 \rowcolor{red!50}
-475 & 240 \\
+450 & 230 & 8 \\
+\rowcolor{red!55}
+475 & 245 & 9 \\
+\rowcolor{red!55}
+500 & 260 & 10 \\
+\rowcolor{red!55}
+525 & 275 & 11 \\
+\rowcolor{red!55}
+550 & 290 & 12 \\
 \end{tabular}%
+      }
+    };
+    \draw ([xshift=.5*\pgflinewidth,yshift=-.5*\pgflinewidth]thetable.north west)
+      rectangle ([xshift=-.5*\pgflinewidth,yshift=.5*\pgflinewidth]thetable.south east);
+  \end{tikzpicture}
 
 \note{ $ ^{\circ}F ~=~ (^{\circ}C * \frac{9}{5}) + 32 $ }
 \note{ $ ^{\circ}C ~=~ (^{\circ}F - 32) * \frac{5}{9} $ }
