@@ -1,6 +1,6 @@
 % main ratios document
 \documentclass[letterpaper,11pt]{article}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=0.8in]{geometry}
 
 \usepackage{tabularx}
 \usepackage[table]{xcolor}
@@ -10,17 +10,12 @@
 
 \usepackage{enumitem}
 
-% \usepackage{fancyhdr}
-% \pagestyle{fancy}
-% \fancyhf{}
-% \lhead{ \huge\scshape{ratios} }
-% \renewcommand{\headrulewidth}{0pt}
-% \renewcommand{\footrulewidth}{0pt}
 
 % section headers - small-caps title
 \newcommand{\sectionheader}[1]{
     \vspace{0.5em}
     {\small\textsc{#1}} \\
+    \vspace{1em}
 }
 
 
@@ -30,55 +25,44 @@
 \pagestyle{empty}
 {\huge\scshape{ratios}}
 
-\rowcolors{2}{gray!25}{white}
+\rowcolors{1}{cyan!10}{white}
 
 \sectionheader{doughs}
 { \small
-\begin{tabularx}{\textwidth}{ X X X X X X }
-\rowcolor{white}
-% ~ & flour & fat & liquid & egg & sugar \\
-~ \\
-% \hline
-Bread & 5 parts flour & & 3 parts water & & \\
-Pasta Dough & 3 parts flour & & & 2 parts egg & \\
-Pie Dough & 3 parts flour & 2 parts fat & 1 part water & & \\
-Biscuit & 3 parts flour & 1 part fat & 2 parts liquid & & \\
-Cookie Dough & 3 parts flour & 2 parts fat & & & 1 part sugar \\
-Pate a Choux & 1 part flour & 1 part butter & 2 parts water & 2 parts egg & \\
+\begin{tabularx}{\textwidth}{ p{4cm} X c X c X c X }
+Bread & 5p flour & : & 3p water & & & &  \\
+Pasta Dough & 3p flour & : & 2p egg & & & & \\
+Pie Dough & 3p flour & : & 2p fat & : & 1p water & & \\
+Biscuit & 3p flour & : & 1p fat & : & 2p liquid & & \\
+Cookie Dough & 1p sugar& : & 2p fat & : & 3p flour & & \\
+Pate a Choux & 2p water & : & 1p butter & : & 1p flour & : & 2p egg \\
 \end{tabularx}
 }
 
 \sectionheader{batters}
 { \small
-\begin{tabularx}{\textwidth}{ l X X X X X }
-\rowcolor{white}
-% ~ & flour & sugar & butter & egg & liquid \\
-~ \\
-% \hline
-Pound Cake & 1 part flour & 1 part sugar & 1 part butter & 1 part egg & \\
-Sponge Cake & 1 part flour & 1 part sugar & 1 part butter & 1 part egg & \\
-Angel Food Cake & 1 part flour & 3 parts sugar & & 3 parts white & \\
-Quick Bread & 2 parts flour & & 1 part butter & 1 part egg & 2 parts liquid \\
-Muffin & 2 parts flour & & 1 part butter & 1 part egg & 2 parts liquid \\
-Fritter & 2 parts flour & & & 1 part egg & 2 parts liquid \\
-Pancake & 2 parts flour & & $\frac{1}{2}$ part butter & 1 part egg & 2 parts liquid \\
-Popover & 1 part flour & & & 1 part egg & 2 parts liquid \\
-Crepe & $\frac{1}{2}$ part flour & & 1 part butter & 1 part egg & \\
+\begin{tabularx}{\textwidth}{ p{4cm} X c X c X c X }
+Pound Cake & 1p butter & : & 1p sugar & : & 1p egg & : & 1p flour \\
+Sponge Cake & 1p egg & : & 1p sugar & : & 1p flour & : & 1p butter \\
+Angel Food Cake & 3p egg white & : & 3p sugar & : & 1p flour & & \\
+Quick Bread & 2p flour & : & 2p liquid & : & 1p egg & : & 1p butter \\
+Muffin & 2p flour & : & 2p liquid & : & 1p egg & : & 1p butter \\
+Fritter & 2p flour & : & 2p liquid & : & 1p egg & & \\
+Pancake & 2p flour & : & 2p liquid & : & 1p egg & : & $\frac{1}{2}$p butter \\
+Popover & 2p liquid & : & 1p egg & : & 1p flour & & \\
+Crepe & 1p liquid & : & 1p egg & : & $\frac{1}{2}$p flour & & \\
 \end{tabularx}
 }
 
 \sectionheader{stocks and sauces}
 { \small
-\begin{tabularx}{\textwidth}{ l X X X X }
-\rowcolor{white}
-~ \\
-% \hline
-Stock & 3 parts water & 2 parts bones & & \\
-Consomme & 12 parts stock & 3 parts meat & 1 part mirepoix & 1 part egg white \\
-Roux & 3 parts flour & 2 parts fat & & \\
-Thickening Ratio & 10 parts liquid & 1 part roux & & \\
-Beurre Manie & 1 part flour & 1 part butter & (by volume) & \\
-Slurry & 1 part cornstarch & 1 part water & (by volume) & \\
+\begin{tabularx}{\textwidth}{ p{4cm} X c X c X c X }
+Stock & 3p water & : & 2p bones & & & & \\
+Consomme & 12p stock & : & 3p meat & : & 1p mirepoix & : & 1p egg white \\
+Roux & 3p flour & : & 2p fat & & & & \\
+Thickening Ratio & 10p liquid & : & 1p roux & & & & \\
+Beurre Manie & 1p flour & : & 1p butter (vol) & & & & \\
+Slurry & 1p cornstarch & : & 1p water (vol) & & & & \\
 \end{tabularx}
 }
 
@@ -90,39 +74,30 @@ Slurry & 1 part cornstarch & 1 part water & (by volume) & \\
 
 \sectionheader{meat}
 { \small
-\begin{tabularx}{\textwidth}{ l X X X }
-\rowcolor{white}
-~ \\
-% \hline
-Sausage & 3 parts meat & 1 part fat & \\
-Sausage Seasoning & 60 parts meat/fat & 1 part salt \\
-Mousseline & 8 parts meat & 4 parts cream & 1 part egg \\
-Brine & 20 parts water & 1 part salt & \\
+\begin{tabularx}{\textwidth}{ p{4cm} X c X c X c X }
+Sausage & 3p meat & : & 1p fat & & & & \\
+Sausage Seasoning & 60p meat + fat & : & 1p salt & & & & \\
+Mousseline & 8p meat & : & 4p cream & : & 1p egg & & \\
+Brine & 20p water & : & 1p salt & & & & \\
 \end{tabularx}
 }
 
 \sectionheader{fat-based sauces}
 { \small
-\begin{tabularx}{\textwidth}{ l X X X }
-\rowcolor{white}
-~ \\
-% \hline
-Mayonnaise & 20 parts oil & 1 part liquid (plus yolk) & \\
-Vinaigrette & 3 parts oil & 1 part vinegar & \\
-Hollandaise & 5 parts butter & 1 part yolk & 1 part liquid \\
+\begin{tabularx}{\textwidth}{ p{4cm} X c X c X c X }
+Mayonnaise & 20p oil & : & 1p liquid +  yolk & & & & \\
+Vinaigrette & 3p oil & : & 1p vinegar & & & & \\
+Hollandaise & 5p butter & : & 1p yolk & : & 1p liquid & & \\
 \end{tabularx}
 }
 
 \sectionheader{custards}
 { \small
-\begin{tabularx}{\textwidth}{ l X X X }
-\rowcolor{white}
-~ \\
-% \hline
-Free-Standing Custard & 2 parts liquid & 1 part egg & \\
-Creme Anglaise & 4 parts milk/cream & 1 part yolk & 1 part sugar \\
-Chocolate Sauce & 1 part chocolate & 1 part cream & \\
-Caramel Sauce & 1 part sugar & 1 part cream & \\
+\begin{tabularx}{\textwidth}{ p{4cm} X c X c X c X }
+Free-Standing Custard & 2p liquid & : & 1p egg & & & & \\
+Creme Anglaise & 4p milk/cream & : & 1p yolk & : & 1p sugar & & \\
+Chocolate Sauce & 1p chocolate & : & 1p cream & & & & \\
+Caramel Sauce & 1p sugar & : & 1p cream & & & & \\
 \end{tabularx}
 }
 
