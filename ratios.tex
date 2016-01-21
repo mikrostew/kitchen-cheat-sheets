@@ -10,24 +10,49 @@
 
 \usepackage{enumitem}
 
+\usepackage{tikz}
+
+\usepackage{stackengine}
+
+\usepackage{scrextend}
+
 
 % section headers - small-caps title
 \newcommand{\sectionheader}[1]
 {
-    \vspace{0.5em}
-    {\small\textsc{#1}} \\
-    \vspace{1em}
-}
+  \vspace{0.5em}
+  {\small\textsc{#1}} \\
+  \vspace{1em}
+}%
 
 % section table layout
 \newcommand{\sectiontable}[1]
 {
-\small
-\rowcolors{1}{cyan!10}{white}
-\begin{tabularx}{\textwidth}{ p{4cm} X c X c X c X }
-#1
-\end{tabularx}
-}
+  % \small
+  \rowcolors{1}{green!20}{white}
+  % rounded corners
+  % (see http://tex.stackexchange.com/questions/184060/table-with-alternating-row-colours-and-rounded-corners)
+  \noindent\begin{tikzpicture}[line width=.1mm,rounded corners=.5em]
+    \node(thetable) [clip,inner sep=.5\pgflinewidth] {
+      \addstackgap[\pgflinewidth]{%
+      \begin{tabularx}{\dimexpr\textwidth-2\pgflinewidth\relax}{ p{4cm} X c X c X c X }
+        #1
+      \end{tabularx}%
+      }
+    };
+    \draw ([xshift=.5*\pgflinewidth,yshift=-.5*\pgflinewidth]thetable.north west)
+      rectangle ([xshift=-.5*\pgflinewidth,yshift=.5*\pgflinewidth]thetable.south east);
+  \end{tikzpicture}
+}%
+
+% for notes under a table
+\newcommand{\note}[1]
+{
+  \small
+  \begin{addmargin}{2em}
+    $\star$ #1
+  \end{addmargin}
+}%
 
 
 \begin{document}
@@ -36,7 +61,6 @@
 \pagestyle{empty}
 {\huge\scshape{ratios}} \\
 ~ \\
-
 
 \sectionheader{doughs}
 \sectiontable{
@@ -49,8 +73,7 @@ Biscuit & 3p flour & : & 1p fat & : & 2p liquid & & \\
 \cellcolor{gray!20}
 Cookie Dough & 1p sugar& : & 2p fat & : & 3p flour & & \\
 Pate a Choux & 2p water & : & 1p butter & : & 1p flour & : & 2p egg \\
-}
-
+}%
 
 \sectionheader{batters}
 \sectiontable{
@@ -68,7 +91,7 @@ Pancake & 2p flour & : & 2p liquid & : & 1p egg & : & $\frac{1}{2}$p butter \\
 Popover & 2p liquid & : & 1p egg & : & 1p flour & & \\
 \cellcolor{gray!20}
 Crepe & 1p liquid & : & 1p egg & : & $\frac{1}{2}$p flour & & \\
-}
+}%
 
 \sectionheader{stocks and sauces}
 \sectiontable{
@@ -81,13 +104,9 @@ Thickening Ratio & 10p liquid & : & 1p roux & & & & \\
 \cellcolor{gray!20}
 Beurre Manie & 1p flour & : & 1p butter (vol) & & & & \\
 Slurry & 1p cornstarch & : & 1p water (vol) & & & & \\
-}
+}%
 
-{ \small
-\begin{itemize}[topsep=4pt]
-  \item Thickening rule: 1 Tbsp starch thickens 1 cup liquid
-\end{itemize}
-}
+\note{Thickening rule: 1 Tbsp starch thickens 1 cup liquid}%
 
 \sectionheader{meat}
 \sectiontable{
@@ -97,7 +116,7 @@ Sausage Seasoning & 60p meat + fat & : & 1p salt & & & & \\
 \cellcolor{gray!20}
 Mousseline & 8p meat & : & 4p cream & : & 1p egg & & \\
 Brine & 20p water & : & 1p salt & & & & \\
-}
+}%
 
 \sectionheader{fat-based sauces}
 \sectiontable{
@@ -106,7 +125,7 @@ Mayonnaise & 20p oil & : & 1p liquid +  yolk & & & & \\
 Vinaigrette & 3p oil & : & 1p vinegar & & & & \\
 \cellcolor{gray!20}
 Hollandaise & 5p butter & : & 1p yolk & : & 1p liquid & & \\
-}
+}%
 
 \sectionheader{custards}
 \sectiontable{
@@ -116,7 +135,7 @@ Creme Anglaise & 4p milk/cream & : & 1p yolk & : & 1p sugar & & \\
 \cellcolor{gray!20}
 Chocolate Sauce & 1p chocolate & : & 1p cream & & & & \\
 Caramel Sauce & 1p sugar & : & 1p cream & & & & \\
-}
+}%
 
 
 \end{document}
