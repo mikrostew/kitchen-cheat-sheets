@@ -16,6 +16,8 @@
 
 \usepackage{scrextend}
 
+\usepackage{hhline}
+
 
 % section headers - small-caps title
 \newcommand{\sectionheader}[1]
@@ -153,6 +155,68 @@ $\frac{1}{2}$ oz & & 14g \\
 \note{ $ 1oz ~=~ 28.35g $ }
 \note{ $ 1g ~=~ 0.035oz $ }
 
+\sectionheader{liquid / volume}
+\rowcolors{3}{cyan!20}{white}
+  \noindent\begin{tikzpicture}[line width=.1mm,rounded corners=.5em]
+    \node(thetable) [clip,inner sep=.5\pgflinewidth] {
+      \addstackgap[\pgflinewidth]{%
+\begin{tabular}{ l l l l l l l | l }
+\rowcolor{gray!30}
+tsp & Tbsp & Cup & Pint & Quart & Gallon & Fluid oz & Metric \\
+\hline
+\rowcolor{white}
+\multicolumn{7}{c |}{U.S.} & \\
+\hhline{-------~}
+1 & 1/3 & & & & & 1/6 & 5mL \\
+3 & 1 & & & & & 0.5 & 15mL \\
+ & 2 & & & & & 1 & 30mL \\
+ & 4 & 1/4 & & & & 2 & 59mL \\
+ & & & & & & 3.4 & 100mL \\
+ & & & & & & 5 & 150mL \\
+ & & & & & & 6.8 & 200mL \\
+ & 16 & 1 & 1/2 & & & 8 & 237mL \\
+ & & & & & & 8.5 & 250mL \\
+ & & & & & & 10.1 & 300mL \\
+ & & & & & & 13.5 & 400mL \\
+ & & 2 & 1 & 1/2 & & 16 & 473mL \\
+ & & & & & & 16.9 & 500mL \\
+ & & & & & & 25.4 & 750mL \\
+ & & 4 & 2 & 1 & 1/4 & 32 & 946mL \\
+ & & & & & & 33.8 & 1L \\
+ & & & & & & 67.6 & 2L \\
+ & & 16 & 8 & 4 & 1 & 128 & 3.79L \\
+ & & & & & & 135 & 4L \\
+\hhline{-------~}
+\rowcolor{white}
+\multicolumn{7}{c |}{U.K.} & \\
+\hhline{-------~}
+1 & 1/3 & & & & & 0.2 & 6mL \\
+3 & 1 & & & & & 5/8 & 18mL \\
+ & & & & & & 1 & 28mL \\
+ & 4 & 1/4 & & & & 2.5 & 71mL \\
+ & & & & & & 3.5 & 100mL \\
+ & & & & & & 5.3 & 150mL \\
+ & & & & & & 7 & 200mL \\
+ & & & & & & 8.8 & 250mL \\
+ & 16 & 1 & 1/2 & & & 10 & 284mL \\
+ & & & & & & 10.6 & 300mL \\
+ & & & & & & 14.1 & 400mL \\
+ & & & & & & 17.6 & 500mL \\
+ & & 2 & 1 & 1/2 & & 20 & 568mL \\
+ & & & & & & 26.4 & 750mL \\
+ & & 4 & 2 & 1 & 1/4 & 40 & 1.14L \\
+ & & & & & & 35.2 & 1L \\
+ & & & & & & 70.4 & 2L \\
+ & & & & & & 140.8 & 4L \\
+ & & 16 & 8 & 4 & 1 & 160 & 4.55L \\
+\end{tabular}%
+      }
+    };
+    \draw ([xshift=.5*\pgflinewidth,yshift=-.5*\pgflinewidth]thetable.north west)
+      rectangle ([xshift=-.5*\pgflinewidth,yshift=.5*\pgflinewidth]thetable.south east);
+  \end{tikzpicture}
+
+% \note{ $ 1Tbsp ~=~ 14.79mL $ }
 
 
 \end{document}
