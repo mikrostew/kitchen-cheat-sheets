@@ -17,6 +17,7 @@
 \usepackage{stackengine}
 \usepackage{scrextend}
 \usepackage{hhline}
+\usepackage{verbatimbox}
 
 % commands
 
@@ -29,7 +30,7 @@
 % section headers - small-caps title
 \newcommand{\sectionheader}[1]%
 {%
-  \bigskip{\small\textsc{#1}}\strut%
+  \bigskip\textsc{#1}\strut%
 }%
 
 % section table layout
@@ -39,6 +40,7 @@
   \rowcolors{1}{green!20}{white}%
   % rounded corners
   % (see http://tex.stackexchange.com/questions/184060/table-with-alternating-row-colours-and-rounded-corners)
+\addvbuffer[4pt 0pt]{%
   \noindent\begin{tikzpicture}[line width=.1mm,rounded corners=.5em]%
     \node(thetable) [clip,inner sep=.5\pgflinewidth] {%
       \addstackgap[\pgflinewidth]{%
@@ -50,12 +52,13 @@
     \draw ([xshift=.5*\pgflinewidth,yshift=-.5*\pgflinewidth]thetable.north west)
       rectangle ([xshift=-.5*\pgflinewidth,yshift=.5*\pgflinewidth]thetable.south east);
   \end{tikzpicture}%
+}%\addvbuffer
 }%
 
 % tabular environment, outlined with rounded corners
 \newcommand{\outlinetable}[2]%
 {%
-% \addstackgap[1em]{%
+\addvbuffer[4pt 0pt]{%
   \noindent\begin{tikzpicture}[line width=.1mm,rounded corners=.5em]%
     \node(thetable) [clip,inner sep=.5\pgflinewidth] {%
       \addstackgap[\pgflinewidth]{%
@@ -67,7 +70,7 @@
     \draw ([xshift=.5*\pgflinewidth,yshift=-.5*\pgflinewidth]thetable.north west)
       rectangle ([xshift=-.5*\pgflinewidth,yshift=.5*\pgflinewidth]thetable.south east);
   \end{tikzpicture}%
-% }%\addstackgap
+}%\addvbuffer
 }%
 
 % for notes under a table
