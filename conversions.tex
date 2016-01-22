@@ -1,6 +1,6 @@
 % main ratios document
 \documentclass[letterpaper,11pt]{article}
-\usepackage[margin=0.8in]{geometry}
+\usepackage[margin=0.6in]{geometry}
 
 \usepackage{tabularx}
 \usepackage[table]{xcolor}
@@ -22,9 +22,11 @@
 % section headers - small-caps title
 \newcommand{\sectionheader}[1]
 {
-  \vspace{0.5em}
+  % \vspace{0.5em}
+  ~\\
   {\small\textsc{#1}} \\
-  \vspace{1em}
+  ~\\
+  % \vspace{2em}
 }%
 
 % section table layout
@@ -66,8 +68,9 @@
 {\huge\scshape{conversions}} \\
 ~ \\
 
-\sectionheader{temperature}
+\begin{minipage}[t]{0.4\textwidth}%
 
+\sectionheader{temperature}
   \noindent\begin{tikzpicture}[line width=.1mm,rounded corners=.5em]
     \node(thetable) [clip,inner sep=.5\pgflinewidth] {
       \addstackgap[\pgflinewidth]{%
@@ -114,8 +117,7 @@ Fahrenheit & Celcius & Gas Mark \\
 \note{ $ ^{\circ}C ~=~ (^{\circ}F - 32) * \frac{5}{9} $ }
 
 \sectionheader{weight}
-\rowcolors{2}{green!20}{white}
-
+  \rowcolors{2}{green!20}{white}
   \noindent\begin{tikzpicture}[line width=.1mm,rounded corners=.5em]
     \node(thetable) [clip,inner sep=.5\pgflinewidth] {
       \addstackgap[\pgflinewidth]{%
@@ -155,8 +157,11 @@ $\frac{1}{2}$ oz & & 14g \\
 \note{ $ 1oz ~=~ 28.35g $ }
 \note{ $ 1g ~=~ 0.035oz $ }
 
-\sectionheader{liquid / volume}
-\rowcolors{3}{cyan!20}{white}
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}%
+
+\sectionheader{liquid \& volume}
+  \rowcolors{3}{cyan!20}{white}
   \noindent\begin{tikzpicture}[line width=.1mm,rounded corners=.5em]
     \node(thetable) [clip,inner sep=.5\pgflinewidth] {
       \addstackgap[\pgflinewidth]{%
@@ -217,6 +222,8 @@ tsp & Tbsp & Cup & Pint & Quart & Gallon & Fluid oz & Metric \\
   \end{tikzpicture}
 
 % \note{ $ 1Tbsp ~=~ 14.79mL $ }
+
+\end{minipage}%
 
 
 \end{document}
