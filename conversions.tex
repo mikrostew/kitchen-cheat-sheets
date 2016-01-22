@@ -20,13 +20,9 @@
 
 
 % section headers - small-caps title
-\newcommand{\sectionheader}[1]
-{
-  % \vspace{0.5em}
-  ~\\
-  {\small\textsc{#1}} \\
-  ~\\
-  % \vspace{2em}
+\newcommand{\sectionheader}[1]%
+{%
+  \bigskip{\small\textsc{#1}}\strut%
 }%
 
 % section table layout
@@ -49,6 +45,24 @@
   \end{tikzpicture}
 }%
 
+% tabular environment, outlined with rounded corners
+\newcommand{\outlinetable}[2]
+{%
+\addstackgap[1em]{%
+  \noindent\begin{tikzpicture}[line width=.1mm,rounded corners=.5em]%
+    \node(thetable) [clip,inner sep=.5\pgflinewidth] {%
+      \addstackgap[\pgflinewidth]{%
+\begin{tabular}{ #1 }%
+#2
+\end{tabular}%
+      }%
+    };
+    \draw ([xshift=.5*\pgflinewidth,yshift=-.5*\pgflinewidth]thetable.north west)
+      rectangle ([xshift=-.5*\pgflinewidth,yshift=.5*\pgflinewidth]thetable.south east);
+  \end{tikzpicture}%
+}%\addstackgap
+}%
+
 % for notes under a table
 \newcommand{\note}[1]
 {
@@ -65,16 +79,13 @@
 \renewcommand{\arraystretch}{1.1}
 
 \pagestyle{empty}
-{\huge\scshape{conversions}} \\
-~ \\
+{\huge\scshape{conversions}}
 
 \begin{minipage}[t]{0.4\textwidth}%
 
 \sectionheader{temperature}
-  \noindent\begin{tikzpicture}[line width=.1mm,rounded corners=.5em]
-    \node(thetable) [clip,inner sep=.5\pgflinewidth] {
-      \addstackgap[\pgflinewidth]{%
-\begin{tabular}{ c c c }
+
+\outlinetable{ c c c }{%
 \rowcolor{white}
 Fahrenheit & Celcius & Gas Mark \\
 \hline
@@ -106,22 +117,15 @@ Fahrenheit & Celcius & Gas Mark \\
 525 & 275 & 11 \\
 \rowcolor{red!55}
 550 & 290 & 12 \\
-\end{tabular}%
-      }
-    };
-    \draw ([xshift=.5*\pgflinewidth,yshift=-.5*\pgflinewidth]thetable.north west)
-      rectangle ([xshift=-.5*\pgflinewidth,yshift=.5*\pgflinewidth]thetable.south east);
-  \end{tikzpicture}
+}
 
 \note{ $ ^{\circ}F ~=~ (^{\circ}C * \frac{9}{5}) + 32 $ }
 \note{ $ ^{\circ}C ~=~ (^{\circ}F - 32) * \frac{5}{9} $ }
 
 \sectionheader{weight}
-  \rowcolors{2}{green!20}{white}
-  \noindent\begin{tikzpicture}[line width=.1mm,rounded corners=.5em]
-    \node(thetable) [clip,inner sep=.5\pgflinewidth] {
-      \addstackgap[\pgflinewidth]{%
-\begin{tabular}{ l c l }
+
+\rowcolors{2}{green!20}{white}%
+\outlinetable{ l c l }{%
 \rowcolor{white}
 Ounce & Pound & Metric \\
 \hline
@@ -146,12 +150,7 @@ $\frac{1}{2}$ oz & & 14g \\
 32 oz & 2 lb & 0.91kg \\
 48 oz & 3 lb & 1.36kg \\
 64 oz & 4 lb & 1.81kg \\
-\end{tabular}%
-      }
-    };
-    \draw ([xshift=.5*\pgflinewidth,yshift=-.5*\pgflinewidth]thetable.north west)
-      rectangle ([xshift=-.5*\pgflinewidth,yshift=.5*\pgflinewidth]thetable.south east);
-  \end{tikzpicture}
+}%
 
 \note{ $ 1kg ~=~ 35oz (2.2lbs) $ }
 \note{ $ 1oz ~=~ 28.35g $ }
@@ -161,11 +160,9 @@ $\frac{1}{2}$ oz & & 14g \\
 \begin{minipage}[t]{0.6\textwidth}%
 
 \sectionheader{liquid \& volume}
-  \rowcolors{3}{cyan!20}{white}
-  \noindent\begin{tikzpicture}[line width=.1mm,rounded corners=.5em]
-    \node(thetable) [clip,inner sep=.5\pgflinewidth] {
-      \addstackgap[\pgflinewidth]{%
-\begin{tabular}{ l l l l l l l | l }
+
+\rowcolors{3}{cyan!20}{white}%
+\outlinetable{ l l l l l l l | l }{%
 \rowcolor{gray!30}
 tsp & Tbsp & Cup & Pint & Quart & Gallon & Fluid oz & Metric \\
 \hline
@@ -214,12 +211,7 @@ tsp & Tbsp & Cup & Pint & Quart & Gallon & Fluid oz & Metric \\
  & & & & & & 70.4 & 2L \\
  & & & & & & 140.8 & 4L \\
  & & 16 & 8 & 4 & 1 & 160 & 4.55L \\
-\end{tabular}%
-      }
-    };
-    \draw ([xshift=.5*\pgflinewidth,yshift=-.5*\pgflinewidth]thetable.north west)
-      rectangle ([xshift=-.5*\pgflinewidth,yshift=.5*\pgflinewidth]thetable.south east);
-  \end{tikzpicture}
+ }%
 
 % \note{ $ 1Tbsp ~=~ 14.79mL $ }
 
