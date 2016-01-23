@@ -33,44 +33,48 @@
   \bigskip\textsc{#1}\strut%
 }%
 
-% section table layout
-\newcommand{\sectiontable}[1]%
+% ratio table layout
+\newcommand{\ratiotable}[1]%
 {%
-  % \small
   \rowcolors{1}{green!20}{white}%
-  % rounded corners
-  % (see http://tex.stackexchange.com/questions/184060/table-with-alternating-row-colours-and-rounded-corners)
-\addvbuffer[4pt 0pt]{%
-  \noindent\begin{tikzpicture}[line width=.1mm,rounded corners=.5em]%
-    \node(thetable) [clip,inner sep=.5\pgflinewidth] {%
-      \addstackgap[\pgflinewidth]{%
-      \begin{tabularx}{\dimexpr\textwidth-2\pgflinewidth\relax}{ p{4cm} X c X c X c X }%
-        #1
-      \end{tabularx}%
-      }%
-    };
-    \draw ([xshift=.5*\pgflinewidth,yshift=-.5*\pgflinewidth]thetable.north west)
-      rectangle ([xshift=-.5*\pgflinewidth,yshift=.5*\pgflinewidth]thetable.south east);
-  \end{tikzpicture}%
-}%\addvbuffer
+  \outlinetabularx{ p{4cm} X c X c X c X }{#1}%
 }%
 
 % tabular environment, outlined with rounded corners
-\newcommand{\outlinetable}[2]%
+\newcommand{\outlinetabular}[2]%
 {%
-\addvbuffer[4pt 0pt]{%
-  \noindent\begin{tikzpicture}[line width=.1mm,rounded corners=.5em]%
-    \node(thetable) [clip,inner sep=.5\pgflinewidth] {%
-      \addstackgap[\pgflinewidth]{%
-\begin{tabular}{ #1 }%
-#2
-\end{tabular}%
-      }%
-    };
-    \draw ([xshift=.5*\pgflinewidth,yshift=-.5*\pgflinewidth]thetable.north west)
-      rectangle ([xshift=-.5*\pgflinewidth,yshift=.5*\pgflinewidth]thetable.south east);
-  \end{tikzpicture}%
-}%\addvbuffer
+  \tableoutline{%
+    \begin{tabular}{ #1 }%
+      #2%
+    \end{tabular}%
+  }%\tableoutline
+}%
+
+% full-width tabularx environment, outlined with rounded corners
+\newcommand{\outlinetabularx}[2]%
+{%
+  \tableoutline{%
+    \begin{tabularx}{\dimexpr\textwidth-2\pgflinewidth\relax}{ #1 }%
+      #2%
+    \end{tabularx}%
+  }%\tableoutline
+}%
+
+\newcommand{\tableoutline}[1]%
+{%
+  \addvbuffer[4pt 0pt]{%
+    % rounded corners
+    % (see http://tex.stackexchange.com/q/184060)
+    \noindent\begin{tikzpicture}[line width=.1mm,rounded corners=.5em]%
+      \node(thetable) [clip,inner sep=.5\pgflinewidth] {%
+        \addstackgap[\pgflinewidth]{%
+          #1%
+        }%
+      };
+      \draw ([xshift=.5*\pgflinewidth,yshift=-.5*\pgflinewidth]thetable.north west)
+        rectangle ([xshift=-.5*\pgflinewidth,yshift=.5*\pgflinewidth]thetable.south east);
+    \end{tikzpicture}%
+  }%\addvbuffer
 }%
 
 % for notes under a table
