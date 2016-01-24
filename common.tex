@@ -83,4 +83,9 @@
   {\small\begin{addmargin}{1em} #1 \end{addmargin}}%
 }%
 
+% combine 2 cells, aligned at their centerline (for units, decimals, etc.)
+\newcommand{\combinealign}[3]{%
+\multicolumn{1}{>{\columncolor{white}[\tabcolsep][0pt]}r@{}}{#1} & \multicolumn{1}{@{}>{\columncolor{white}[0pt][\tabcolsep]}l #3}{#2}
+}%
+
 
