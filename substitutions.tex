@@ -1,0 +1,57 @@
+\input{./common}
+
+\newcommand{\ingredient}[2]{%
+\begin{tabular}{ l }%
+#1 \\
+{\small\textit{#2}} \\
+\end{tabular}%
+}%
+
+\newcommand{\groupoutline}[1]%
+{%
+  \addvbuffer[3pt 3pt]{%
+    \noindent\begin{tikzpicture}[rounded corners=.5em, anchor=base, baseline]%
+      \node [clip] {#1};
+    \end{tikzpicture}%
+  }%\addvbuffer
+}%
+
+
+\newcommand{\originalgroup}[1]{%
+\groupoutline{\colorbox{gray!30}{#1}}%
+}%
+
+\newcommand{\substitutiongroup}[1]{%
+\groupoutline{\colorbox{violet!50}{#1}}%
+}%
+
+\begin{document}
+\normalsize
+\pagestyle{empty}
+
+\pagetitle{substitutions}
+
+\sectionheader{baking}
+
+\outlinetabularx{ l X }{%
+\rowcolor{white}
+Original & Substitution \\
+% \hline
+\originalgroup{\ingredient{baking powder}{1 tsp}} &%
+\substitutiongroup{\ingredient{cream of tartar}{1/2 tsp} + \ingredient{baking soda}{1/4 tsp}}%
+\\
+\originalgroup{\ingredient{buttermilk}{1 cup}} &%
+\substitutiongroup{\ingredient{milk}{1 cup} + \ingredient{vinegar}{1 Tbsp}}%
+~OR~%
+\substitutiongroup{\ingredient{milk}{1 cup} + \ingredient{lemon juice}{1 Tbsp}}%
+~OR~%
+\substitutiongroup{\ingredient{yogurt}{1 cup}}%
+\\
+\originalgroup{\ingredient{flour, self-rising}{1 cup}} &%
+\substitutiongroup{\ingredient{flour, all purpose}{1 cup} + \ingredient{baking powder}{1 tsp} +%
+\ingredient{salt}{1/2 tsp} + \ingredient{baking soda}{1/4 tsp}}%
+\\
+}
+
+
+\end{document}
