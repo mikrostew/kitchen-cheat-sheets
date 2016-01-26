@@ -25,6 +25,11 @@
 \groupoutline{\colorbox{violet!50}{#1}}%
 }%
 
+\newcommand{\plus}%
+{%
+{\Large\bfseries{\textcolor{white}{+}}}%
+}%
+
 \begin{document}
 \normalsize
 \pagestyle{empty}
@@ -38,18 +43,18 @@
 Original & Substitution \\
 % \hline
 \originalgroup{\ingredient{baking powder}{1 tsp}} &%
-\substitutiongroup{\ingredient{cream of tartar}{1/2 tsp} + \ingredient{baking soda}{1/4 tsp}}%
+\substitutiongroup{\ingredient{cream of tartar}{1/2 tsp} \plus \ingredient{baking soda}{1/4 tsp}}%
 \\
 \originalgroup{\ingredient{buttermilk}{1 cup}} &%
-\substitutiongroup{\ingredient{milk}{1 cup} + \ingredient{vinegar}{1 Tbsp}}%
+\substitutiongroup{\ingredient{milk}{1 cup} \plus \ingredient{vinegar}{1 Tbsp}}%
 ~OR~%
-\substitutiongroup{\ingredient{milk}{1 cup} + \ingredient{lemon juice}{1 Tbsp}}%
+\substitutiongroup{\ingredient{milk}{1 cup} \plus \ingredient{lemon juice}{1 Tbsp}}%
 ~OR~%
 \substitutiongroup{\ingredient{yogurt}{1 cup}}%
 \\
 \originalgroup{\ingredient{flour, self-rising}{1 cup}} &%
-\substitutiongroup{\ingredient{flour, all purpose}{1 cup} + \ingredient{baking powder}{1 tsp} +%
-\ingredient{salt}{1/2 tsp} + \ingredient{baking soda}{1/4 tsp}}%
+\substitutiongroup{\ingredient{flour, all purpose}{1 cup} \plus \ingredient{baking powder}{1 tsp} \plus%
+\ingredient{salt}{1/2 tsp} \plus \ingredient{baking soda}{1/4 tsp}}%
 \\
 }
 
