@@ -16,7 +16,6 @@
   }%\addvbuffer
 }%
 
-
 \newcommand{\originalgroup}[1]{%
 \groupoutline{\colorbox{gray!30}{#1}}%
 }%
@@ -28,6 +27,11 @@
 \newcommand{\plus}%
 {%
 {\Large\bfseries{\textcolor{white}{+}}}%
+}%
+
+\newcommand{\orgroup}%
+{%
+~\textsc{or}~%
 }%
 
 \begin{document}
@@ -47,9 +51,9 @@ Original & Substitution \\
 \\
 \originalgroup{\ingredient{buttermilk}{1 cup}} &%
 \substitutiongroup{\ingredient{milk}{1 cup} \plus \ingredient{vinegar}{1 Tbsp}}%
-~OR~%
+\orgroup%
 \substitutiongroup{\ingredient{milk}{1 cup} \plus \ingredient{lemon juice}{1 Tbsp}}%
-~OR~%
+\orgroup%
 \substitutiongroup{\ingredient{yogurt}{1 cup}}%
 \\
 \originalgroup{\ingredient{flour, self-rising}{1 cup}} &%
@@ -64,12 +68,21 @@ Original & Substitution \\
 \rowcolor{white}
 Original & Substitution \\
 % \hline
+% from http://www.healwithfood.org/substitute/garlic-cloves-convert-granulated-powder.php
 \originalgroup{\ingredient{garlic}{1 clove}} &%
 \substitutiongroup{\ingredient{garlic powder}{1/8 tsp}}%
-~OR~%
+\orgroup%
 \substitutiongroup{\ingredient{granulated garlic}{1/4 tsp}}%
-~OR~%
+\orgroup%
 \substitutiongroup{\ingredient{garlic flakes}{1/2 tsp}}%
+\\
+% from http://www.almanac.com/content/common-ingredient-substitutions
+\originalgroup{\ingredient{onion}{1 small}} &%
+\substitutiongroup{\ingredient{onion powder}{1 tsp}}%
+\orgroup%
+\substitutiongroup{\ingredient{instant minced onion}{1 Tbsp}}%
+\orgroup%
+\substitutiongroup{\ingredient{frozen chopped onion}{1/4 cup}}%
 \\
 }
 
